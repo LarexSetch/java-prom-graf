@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  sandbox-prometheus:
+    container_name: sandbox-prometheus
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - "./etc/prometheus.yml:/etc/prometheus/prometheus.yml"
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+
+  sandbox-grafana:
+    container_name: sandbox-grafana
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+
